@@ -49,7 +49,6 @@ The estimated responses indicate:
 - **GDP:** negative response, particularly during the COVID period
 - **Exports:** negative and relatively persistent response around major uncertainty episodes
 - **Unemployment:** upward response following major uncertainty shocks
-- **T-Bill yields:** generally inverse relationship with the uncertainty index, with responses varying across periods
 
 ### Financial Markets
 
@@ -58,7 +57,7 @@ The financial-market variables also exhibit time-varying responses:
 - **NIFTY:** negative short-run response following uncertainty shocks
 - **SENSEX:** negative response during high-uncertainty periods, followed by recovery at longer horizons
 - **Exchange rate:** evidence of depreciation pressure during periods of elevated uncertainty
-- **T-Bill yield:** generally moved inversely with uncertainty, although major episodes produced different short-run dynamics
+- **T-Bill yields:** generally moved inversely with uncertainty, although responses varied across periods
 
 ### Time-Varying Effects
 
@@ -182,7 +181,7 @@ Responses were examined across representative pre-COVID, COVID, and post-COVID p
 
 ## Risk & Economic Interpretation
 
-The results suggest that economic uncertainty can act as an important transmission channel through which major shocks affect India's macroeconomic performance and financial-market conditions.
+The results indicate that economic uncertainty is an important transmission channel through which major shocks are associated with changes in India's macroeconomic and financial-market conditions.
 
 The findings have implications for:
 
@@ -195,15 +194,15 @@ The analysis therefore focuses not only on whether uncertainty is high or low, b
 
 ---
 
-## What the Project Demonstrates
+## Methods & Quantitative Skills
 
 ### Econometrics & Quantitative Methods
 
 - Principal Component Analysis (PCA)
 - ADF stationarity testing
 - GARCH volatility modelling
-- Bayesian TVP-VAR
-- Markov Chain Monte Carlo (MCMC)
+- Bayesian Time-Varying Parameter VAR (TVP-VAR)
+- Markov Chain Monte Carlo (MCMC) estimation
 - Impulse response analysis
 - Time-varying macroeconomic analysis
 
@@ -214,10 +213,10 @@ The analysis therefore focuses not only on whether uncertainty is high or low, b
 - Economic uncertainty measurement
 - Uncertainty transmission analysis
 - Shock-response analysis
-- Pre-COVID / COVID / post-COVID comparison
+- Pre-COVID, COVID, and post-COVID comparison
 - Policy and risk interpretation
 
-### Tools
+### Tool
 
 **R**
 
@@ -246,14 +245,6 @@ The presentation covers:
 This repository is intentionally **presentation-focused**.
 
 It contains the final research presentation rather than the underlying research code or dataset. The project was originally completed as a **Master's dissertation in Economics** and is presented here as a research and analytics portfolio project.
-
----
-
-## Relevance
-
-This project demonstrates experience relevant to:
-
-**Applied Analytics · Risk Analytics · Financial Analytics · Quantitative Analytics · Economic Research · Decision Analytics · Banking & Financial Services**
 
 ---
 
