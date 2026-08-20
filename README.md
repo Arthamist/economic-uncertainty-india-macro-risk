@@ -233,5 +233,3 @@ The project was originally completed as a **Master's dissertation in Economics**
 ## Author
 
 **Aditi Kushwaha**
-
-**M.Sc. Economics | Applied Analytics | Econometrics | Risk & Financial Analysis**
