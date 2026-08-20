@@ -6,61 +6,69 @@
 
 ---
 
-## 1. Project Overview
+## Project at a Glance
 
-Economic uncertainty can affect economic activity, employment, financial markets, and investor behaviour. This research develops a composite measure of economic uncertainty for India and examines how its effects vary across different periods, with particular focus on the COVID-19 episode.
+Economic uncertainty can influence economic activity, employment, exchange rates, and financial-market conditions. This research develops a **Composite Economic Uncertainty Index for India** and examines how uncertainty shocks transmit through the economy and financial markets over time.
 
-The study combines three dimensions of uncertainty:
+The study combines:
 
-- **Economic Policy Uncertainty (EPU)** — policy-related uncertainty captured through newspaper coverage
-- **India VIX** — expected near-term equity-market volatility
-- **Inflation volatility** — conditional volatility estimated using a GARCH model
+**EPU + India VIX + Inflation Volatility**  
+↓  
+**Principal Component Analysis (PCA)**  
+↓  
+**Composite Uncertainty Index**  
+↓  
+**Bayesian Time-Varying Parameter VAR (TVP-VAR)**  
+↓  
+**Time-Varying Impulse Response Analysis**  
+↓  
+**Macroeconomic & Financial Risk Insights**
 
-These measures are combined using **Principal Component Analysis (PCA)** to construct a Composite Uncertainty Index. The index is then incorporated into a **Bayesian Time-Varying Parameter VAR (TVP-VAR)** framework to examine the dynamic response of macroeconomic and financial variables to uncertainty shocks.
-
-The analysis covers **monthly Indian data from 2016–2022**, allowing comparison across pre-COVID, COVID, and post-COVID periods.
+The analysis uses **monthly Indian data from 2016–2022**, allowing the effects of uncertainty to be examined across **pre-COVID, COVID, and post-COVID periods**.
 
 ---
 
-## 2. Research Questions
+## Research Questions
 
 The study addresses three questions:
 
-1. How does economic uncertainty affect key macroeconomic variables in India?
-2. How does economic uncertainty affect Indian financial markets?
-3. How do these relationships change across pre-COVID, COVID, and post-COVID periods?
+1. **How does economic uncertainty affect key macroeconomic variables in India?**
+2. **How does economic uncertainty affect Indian financial markets?**
+3. **How do these relationships change across pre-COVID, COVID, and post-COVID periods?**
 
 ---
 
-## 3. Analytical Framework
+## Key Findings
 
-```text
-Economic Policy Uncertainty (EPU)
-              +
-          India VIX
-              +
-     Inflation Volatility
-              │
-              ▼
-             PCA
-              │
-              ▼
-  Composite Uncertainty Index
-              │
-              ▼
-     Bayesian TVP-VAR
-              │
-              ▼
- Time-Varying Impulse Responses
-              │
-              ▼
- Macroeconomic & Financial-Market
-          Risk Analysis
-```
+### Economic Activity
+
+The Composite Uncertainty Index shows pronounced increases during major uncertainty episodes, with the largest spike occurring around **April 2020** during the COVID-19 lockdown period.
+
+The estimated responses indicate:
+
+- **GDP:** negative response, particularly during the COVID period
+- **Exports:** negative and relatively persistent response around major uncertainty episodes
+- **Unemployment:** upward response following major uncertainty shocks
+- **T-Bill yields:** generally inverse relationship with the uncertainty index, with responses varying across periods
+
+### Financial Markets
+
+The financial-market variables also exhibit time-varying responses:
+
+- **NIFTY:** negative short-run response following uncertainty shocks
+- **SENSEX:** negative response during high-uncertainty periods, followed by recovery at longer horizons
+- **Exchange rate:** evidence of depreciation pressure during periods of elevated uncertainty
+- **T-Bill yield:** generally moved inversely with uncertainty, although major episodes produced different short-run dynamics
+
+### Time-Varying Effects
+
+The central finding is that the effects of uncertainty **are not constant over time**.
+
+The COVID-19 period produced the strongest and most widespread responses across the variables examined. Several responses became weaker or moved closer to baseline during the post-COVID period, while renewed uncertainty in 2022 produced different responses across variables.
 
 ---
 
-## 4. Data
+## Data
 
 **Period:** 2016–2022  
 **Frequency:** Monthly
@@ -70,17 +78,17 @@ Economic Policy Uncertainty (EPU)
 | Measure | Role |
 |---|---|
 | Economic Policy Uncertainty (EPU) | Policy-related uncertainty |
-| India VIX | Expected market volatility |
+| India VIX | Expected near-term equity-market volatility |
 | Inflation volatility | Conditional inflation uncertainty estimated using GARCH |
 
-### Response Variables
+### Macroeconomic Variables
 
-**Macroeconomic**
 - GDP
 - Unemployment rate
 - Exports
 
-**Financial**
+### Financial Variables
+
 - INR/USD exchange rate
 - 182-day Treasury Bill yield
 - NIFTY returns
@@ -88,145 +96,164 @@ Economic Policy Uncertainty (EPU)
 
 ### Data Sources
 
-- Economic Policy Uncertainty — PolicyUncertainty.com
-- India VIX — NSE India
-- Inflation & GDP — Ministry of Statistics and Programme Implementation (MoSPI)
-- Exports — Ministry of Commerce
-- Unemployment — CMIE
-- Exchange rate & T-Bill yield — Financial Benchmarks India Pvt. Ltd. (FBIL)
-- NIFTY — Yahoo Finance
-- SENSEX — BSE India
+| Variable / Measure | Source |
+|---|---|
+| Economic Policy Uncertainty | PolicyUncertainty.com |
+| India VIX | NSE India |
+| Inflation & GDP | Ministry of Statistics and Programme Implementation (MoSPI) |
+| Exports | Ministry of Commerce |
+| Unemployment | CMIE |
+| Exchange rate & T-Bill yield | Financial Benchmarks India Pvt. Ltd. (FBIL) |
+| NIFTY | Yahoo Finance |
+| SENSEX | BSE India |
 
-### Data Preparation
+---
 
-The dissertation uses monthly observations from 2016–2022. GDP was originally available at quarterly frequency and was converted to monthly frequency using the **Denton–Cholette method**, with the **Index of Industrial Production (IIP)** used as the benchmark.
+## Data Preparation
+
+The analysis uses monthly observations from 2016–2022.
+
+GDP was originally available at quarterly frequency and was converted to monthly frequency using the **Denton–Cholette method**, with the **Index of Industrial Production (IIP)** used as the benchmark.
 
 Stationarity was assessed using the **Augmented Dickey-Fuller (ADF) test**. Non-stationary variables were transformed through first differencing before the TVP-VAR analysis.
 
 ---
 
-## 5. Methodology
+## Methodology
 
-### Step 1 — Inflation Volatility
+### 1. Inflation Volatility
 
-Inflation was transformed into a stationary series and a **GARCH model** was used to estimate its conditional variance. The resulting volatility measure forms one component of the uncertainty index.
+Inflation was transformed into a stationary series and a **GARCH model** was used to estimate its conditional variance.
 
-### Step 2 — Composite Uncertainty Index
+The resulting volatility measure was used as one component of the Composite Uncertainty Index.
 
-The three uncertainty measures were standardised and combined using **Principal Component Analysis**.
+### 2. Composite Uncertainty Index
+
+The three uncertainty measures were standardised and combined using **Principal Component Analysis (PCA)**.
 
 The **first principal component (PC1)** was selected as the Composite Uncertainty Index because it captures the largest share of common variation across the underlying uncertainty measures.
 
-### Step 3 — Bayesian TVP-VAR
+### 3. Bayesian TVP-VAR
 
 A **Time-Varying Parameter Vector Autoregression (TVP-VAR)** model was estimated using Bayesian inference and **Markov Chain Monte Carlo (MCMC)** methods.
 
-Unlike a conventional VAR, the TVP-VAR allows the relationships between uncertainty and the macroeconomic/financial variables to evolve over time.
+The TVP-VAR framework allows relationships between uncertainty and the macroeconomic and financial variables to evolve over time rather than remaining fixed throughout the sample.
 
-### Step 4 — Dynamic Response Analysis
+### 4. Dynamic Response Analysis
 
-Impulse response analysis was used to examine how the selected variables respond to an identified uncertainty shock over:
+Impulse response analysis was used to examine how the selected variables respond to an **identified uncertainty shock** over:
 
 - **6-month horizons**
 - **12-month horizons**
 
-Responses were examined across representative periods including pre-COVID, COVID, and post-COVID conditions.
+Responses were examined across representative pre-COVID, COVID, and post-COVID periods.
 
 ---
 
-## 6. Key Findings
+## Analytical Framework
 
-### Economic Activity
-
-The Composite Uncertainty Index shows pronounced spikes during major uncertainty episodes, with the **largest spike occurring around April 2020** during the COVID-19 lockdown period.
-
-The analysis indicates that higher uncertainty was associated with weaker economic outcomes:
-
-- **GDP:** negative response, particularly during the COVID period
-- **Exports:** negative and relatively persistent response around major uncertainty episodes
-- **Unemployment:** upward response following major uncertainty shocks
-- **T-Bill yields:** generally showed an inverse relationship with the uncertainty index, with the response varying across periods
-
-### Financial Markets
-
-The financial-market variables also displayed time-varying responses:
-
-- **NIFTY:** negative short-run response following uncertainty shocks
-- **SENSEX:** negative response during high-uncertainty periods, with recovery at longer horizons
-- **Exchange rate:** evidence of depreciation pressure during periods of elevated uncertainty
-- **T-Bill yield:** generally moved inversely with uncertainty, although major episodes produced different short-run dynamics
-
-### COVID-19 and Time Variation
-
-The central finding is that the effects of uncertainty **were not constant over time**.
-
-The COVID-19 period produced the strongest and most widespread responses across the variables examined. Several responses became weaker or moved closer to baseline during the post-COVID period, while renewed uncertainty in 2022 generated different responses across variables.
-
----
-
-## 7. Main Insight
-
-A key conclusion of the research is:
-
-> **Economic uncertainty acts as an important transmission channel through which major shocks can affect India's macroeconomic performance and financial-market conditions, with the magnitude and persistence of these effects changing over time.**
-
-The study therefore goes beyond measuring whether uncertainty is high or low; it examines **how the economic consequences of an uncertainty shock evolve across different periods.**
+```text
+                  UNCERTAINTY MEASURES
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+         EPU         India VIX    Inflation Volatility
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                       PCA
+                         │
+                         ▼
+             COMPOSITE UNCERTAINTY INDEX
+                         │
+                         ▼
+                 BAYESIAN TVP-VAR
+                         │
+                         ▼
+             TIME-VARYING IMPULSE
+                  RESPONSES
+                         │
+                         ▼
+             MACROECONOMIC & FINANCIAL
+                    RISK ANALYSIS
+```
 
 ---
 
-## 8. Risk & Policy Interpretation
+## Risk & Economic Interpretation
 
-The findings have implications for macroeconomic and financial-risk monitoring.
+The results suggest that economic uncertainty can act as an important transmission channel through which major shocks affect India's macroeconomic performance and financial-market conditions.
 
-The research highlights the importance of:
+The findings have implications for:
 
-- **Policy clarity:** predictable policy communication can help reduce uncertainty-driven disruption.
-- **External-sector resilience:** elevated uncertainty can create pressure on exchange rates and exports.
-- **Economic stabilisation:** timely fiscal and public-investment measures can help cushion economic activity and employment during major shocks.
-- **Financial-market resilience:** credible monetary policy communication and adequate market liquidity can help manage uncertainty-related volatility.
+- **Policy clarity** — predictable policy communication can help reduce uncertainty-driven disruption.
+- **External-sector resilience** — elevated uncertainty can create pressure on exchange rates and exports.
+- **Economic stabilisation** — timely fiscal and public-investment measures can help cushion economic activity and employment during major shocks.
+- **Financial-market resilience** — credible monetary-policy communication and adequate market liquidity can help manage uncertainty-related volatility.
+
+The analysis therefore focuses not only on whether uncertainty is high or low, but also on **how the economic consequences of an uncertainty shock evolve across different periods**.
 
 ---
 
-## 9. What This Project Demonstrates
+## What the Project Demonstrates
 
-**Econometrics**
-- PCA-based index construction
+### Econometrics & Quantitative Methods
+
+- Principal Component Analysis (PCA)
 - ADF stationarity testing
 - GARCH volatility modelling
 - Bayesian TVP-VAR
-- MCMC estimation
+- Markov Chain Monte Carlo (MCMC)
 - Impulse response analysis
 - Time-varying macroeconomic analysis
 
-**Economic & Risk Analysis**
+### Risk & Economic Analysis
+
 - Macroeconomic risk measurement
 - Financial-market risk analysis
-- Uncertainty transmission
+- Economic uncertainty measurement
+- Uncertainty transmission analysis
 - Shock-response analysis
-- Period-based comparative analysis
-- Policy interpretation
+- Pre-COVID / COVID / post-COVID comparison
+- Policy and risk interpretation
 
-**Tools**
-- R
-- Econometric and statistical modelling
+### Tools
 
----
-
-## 10. Project Presentation
-
-The complete research presentation is available in this repository:
-
-**[View the presentation](Economic_Uncertainty_India_Macro_Risk_Analysis.pdf)**
-
-The presentation summarises the research question, data, methodology, uncertainty-index construction, impulse-response results, overall findings, and policy implications.
+**R**
 
 ---
 
-## 11. Project Scope
+## Project Presentation
 
-This repository is intentionally **presentation-focused**. It contains the final research presentation rather than the underlying dataset or source code.
+The complete research presentation is available below:
 
-The project was originally completed as a **Master's dissertation in Economics** and has been presented here as a research and analytics portfolio project.
+**[View the Economic Uncertainty & Macroeconomic Risk Analysis presentation](Economic_Uncertainty_India_Macro_Risk_Analysis.pdf)**
+
+The presentation covers:
+
+- Research questions
+- Data and variables
+- Composite Uncertainty Index
+- Methodology
+- Dynamic impulse responses
+- Key findings
+- Risk and policy interpretation
+
+---
+
+## Project Scope
+
+This repository is intentionally **presentation-focused**.
+
+It contains the final research presentation rather than the underlying research code or dataset. The project was originally completed as a **Master's dissertation in Economics** and is presented here as a research and analytics portfolio project.
+
+---
+
+## Relevance
+
+This project demonstrates experience relevant to:
+
+**Applied Analytics · Risk Analytics · Financial Analytics · Quantitative Analytics · Economic Research · Decision Analytics · Banking & Financial Services**
 
 ---
 
